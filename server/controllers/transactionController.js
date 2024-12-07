@@ -3,6 +3,8 @@ const Transaction = require('../models/Transaction');
 const addTransaction = async (req, res) => {
   const { type, amount, category, date, description } = req.body;
 
+  console.log('Received transaction data:', { type, amount, category, date, description, user: req.user.id });
+
   try {
     const transaction = new Transaction({
       type,
